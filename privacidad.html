@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de privacidad</title>
+  <meta name="description" content="Política de privacidad de Estudio Multicanal.">
+  <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+<main>
+  <header>
+    <nav>
+      <a href="./">Inicio</a>
+      <a href="privacidad.html">Política de privacidad</a>
+      <a href="terminos.html">Condiciones del servicio</a>
+    </nav>
+  </header>
+
+  <h1>Política de privacidad</h1>
+  <p class="sub">Estudio Multicanal · Vigente desde el 1 de noviembre de 2026</p>
+
+  <div class="tarjeta">
+    <p><strong>En resumen:</strong> Estudio Multicanal corre solo en el computador de su desarrollador y solo se conecta a los canales de YouTube que él administra. No vende, alquila ni comparte datos con fines publicitarios. No lee comentarios ni datos personales de los espectadores; solo usa métricas agregadas y anónimas.</p>
+  </div>
+
+  <h2>1. Uso de los servicios de la API de YouTube</h2>
+  <p>Estudio Multicanal usa los <strong>servicios de la API de YouTube</strong> (YouTube Data API v3 y YouTube Analytics API). Al conectar un canal, aceptas las <a href="https://www.youtube.com/t/terms">Condiciones del Servicio de YouTube</a>. Google trata tus datos según la <a href="https://policies.google.com/privacy">Política de Privacidad de Google</a>.</p>
+
+  <h2>2. Qué datos se acceden y para qué</h2>
+  <p>Al conectar un canal con Google OAuth, la aplicación pide estos permisos:</p>
+  <table>
+    <tr><th>Permiso</th><th>Para qué se usa</th></tr>
+    <tr><td><code>youtube.upload</code></td><td>Subir los videos que produce la aplicación.</td></tr>
+    <tr><td><code>youtube</code></td><td>Poner la miniatura de cada video y actualizar el banner y la descripción del canal.</td></tr>
+    <tr><td><code>youtube.readonly</code></td><td>Leer la información del canal y la lista de sus videos.</td></tr>
+    <tr><td><code>yt-analytics.readonly</code></td><td>Leer las métricas agregadas del canal y de sus videos.</td></tr>
+  </table>
+  <p>Con esos permisos, la aplicación lee:</p>
+  <ul>
+    <li><strong>Del canal:</strong> nombre, descripción, configuración de marca y totales públicos (suscriptores, vistas, número de videos).</li>
+    <li><strong>De cada video:</strong> título, descripción, fecha de publicación, duración y estado de privacidad.</li>
+    <li><strong>Métricas agregadas de YouTube Analytics:</strong> vistas, minutos de visualización, duración y porcentaje medio visto, suscriptores ganados y perdidos, conteo de me gusta y de comentarios, y la curva de retención de la audiencia.</li>
+  </ul>
+  <p>La aplicación <strong>no</strong> lee el texto de los comentarios, la identidad de los espectadores, mensajes, suscripciones, historial de búsqueda ni ningún dato personal de terceros.</p>
+
+  <h2>3. Dónde se guardan los datos</h2>
+  <ul>
+    <li>Todo se guarda <strong>localmente</strong>, en una base de datos SQLite dentro del computador del desarrollador. No hay servidores en la nube propios.</li>
+    <li>Los tokens de acceso de Google se guardan <strong>cifrados con AES-256-GCM</strong>. La clave de cifrado vive solo en un archivo de configuración local.</li>
+    <li>La aplicación no usa cookies de seguimiento ni herramientas de analítica de terceros.</li>
+  </ul>
+
+  <h2>4. Con quién se comparten</h2>
+  <ul>
+    <li><strong>Google / YouTube:</strong> para autenticar, subir videos y leer métricas.</li>
+    <li><strong>Anthropic (Claude):</strong> la aplicación usa IA para proponer temas y resumir qué videos funcionaron mejor. Para eso le envía títulos de videos, fechas, duraciones y métricas agregadas (vistas, retención, duración media, me gusta y suscriptores ganados). No le envía tokens, comentarios ni datos de espectadores. Anthropic trata esa información según su propia <a href="https://www.anthropic.com/legal/privacy">política de privacidad</a>.</li>
+  </ul>
+  <p>No se venden ni se ceden datos a nadie más, ni se usan con fines publicitarios.</p>
+
+  <h2>5. Cuánto tiempo se guardan y cómo borrarlos</h2>
+  <ul>
+    <li>Las métricas se vuelven a consultar a diario, así que los datos guardados se renuevan constantemente.</li>
+    <li>Puedes desconectar un canal desde la aplicación. Al hacerlo, el token se revoca en Google de inmediato y se borra, y los datos de YouTube de ese canal guardados por la aplicación se eliminan en un plazo máximo de <strong>7 días</strong>.</li>
+    <li>También puedes retirar el acceso en cualquier momento desde la <a href="https://security.google.com/settings/security/permissions">configuración de seguridad de tu cuenta de Google</a>. Si Google rechaza el token, la aplicación lo borra y elimina los datos de YouTube de ese canal en el mismo plazo de 7 días.</li>
+  </ul>
+
+  <h2>6. Cambios y contacto</h2>
+  <p>Si esta política cambia, se actualiza esta página y su fecha. Para dudas o solicitudes de borrado, <a href="https://github.com/KevinT31/estudio-multicanal-web/issues">abre un issue en GitHub</a>.</p>
+
+  <hr>
+
+  <section id="en" lang="en">
+    <h2>Privacy policy (English)</h2>
+    <p class="sub">Effective November 1, 2026</p>
+    <p>Estudio Multicanal runs only on its developer's own computer and connects only to YouTube channels that developer manages. It uses the <strong>YouTube API Services</strong>. By connecting a channel you agree to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> applies.</p>
+    <h3>Data accessed</h3>
+    <p>Scopes: <code>youtube.upload</code> (upload videos), <code>youtube</code> (set thumbnails, update channel banner and description), <code>youtube.readonly</code> (read channel and video details), <code>yt-analytics.readonly</code> (read aggregate metrics). The app reads channel name, description, branding and public totals; video titles, descriptions, publish dates, durations and privacy status; and aggregate analytics (views, watch time, average view duration and percentage, subscribers gained/lost, like and comment counts, audience retention). It does not read comment text, viewer identities or any third-party personal data.</p>
+    <h3>Storage</h3>
+    <p>Data is stored locally in a SQLite database on the developer's computer. OAuth tokens are encrypted with AES-256-GCM. No tracking cookies or third-party analytics are used.</p>
+    <h3>Sharing</h3>
+    <p>Data is shared with Google/YouTube to authenticate, upload and read metrics, and with Anthropic (Claude) to suggest topics and summarize performance: video titles, dates, durations and aggregate metrics only, never tokens, comments or viewer data. Data is never sold or used for advertising.</p>
+    <h3>Retention and deletion</h3>
+    <p>Metrics are refreshed daily. Disconnecting a channel immediately revokes and deletes its token, and the channel's stored YouTube data is deleted within 7 days. You can also revoke access at any time from your <a href="https://security.google.com/settings/security/permissions">Google account security settings</a>; if Google rejects the token, the app deletes it and the channel's YouTube data within the same 7 days.</p>
+    <h3>Contact</h3>
+    <p><a href="https://github.com/KevinT31/estudio-multicanal-web/issues">Open an issue on GitHub</a>.</p>
+  </section>
+
+  <footer><a href="./">Estudio Multicanal</a></footer>
+</main>
+</body>
+</html>
